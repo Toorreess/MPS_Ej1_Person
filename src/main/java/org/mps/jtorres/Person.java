@@ -1,4 +1,4 @@
-package org.mps.jtorres.person;
+package org.mps.jtorres;
 
 import java.util.List;
 /**

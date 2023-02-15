@@ -1,4 +1,4 @@
-package org.mps.jtorres.person;
+package org.mps.jtorres;
 
 public class NegativeAgeException extends RuntimeException{
     public NegativeAgeException(String e){

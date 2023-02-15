@@ -1,4 +1,4 @@
-package org.mps.jtorres.person;
+package org.mps.jtorres;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -77,7 +77,7 @@ public class PersonTest {
 
     // 6) El metodo gender() devuelve correctamente el genero del objeto person
     @Test
-    void returnMaleGender(){
+    void returnCorrectGender(){
         String genderExpected = "male";
         String genderActual = p.gender();
         assertEquals(genderExpected, genderActual);

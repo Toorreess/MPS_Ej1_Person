@@ -1,4 +1,4 @@
-package org.mps.jtorres.person;
+package org.mps.jtorres;
 
 public class EmptyListException extends RuntimeException{
     public EmptyListException(String e){
