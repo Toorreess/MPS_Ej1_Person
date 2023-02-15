@@ -1,7 +1,6 @@
 package org.mps.jtorres.person;
 
 import java.util.List;
-
 /**
  * @author J. Torres
  */
@@ -17,6 +16,11 @@ public class Person {
      * @param gender
      */
     public Person(String name, int age, String gender){
+        if(age < 0)
+            throw new NegativeAgeException("Negative age not allowed.");
+        if(!gender.equalsIgnoreCase("male") && !gender.equalsIgnoreCase("female"))
+            throw new GenderNotAllowedException("Gender not allowed.");
+
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -24,7 +28,6 @@ public class Person {
 
     public String name(){return name;}
     public int age(){return age;}
-
     public String gender(){return gender;}
 
     public double[] averageAgePerGender(List<Person> persons){
@@ -37,8 +40,6 @@ public class Person {
         if(persons.isEmpty()) throw new RuntimeException();
 
         for(Person p : persons){
-            if(p.age < 0) throw new RuntimeException("Negative age not allowed");
-
             if(p.name().equalsIgnoreCase("male")) {
                 maleMeanAge += p.age();
                 numberOfMale++;
@@ -47,8 +48,6 @@ public class Person {
                 femaleMeanAge += p.age();
                 numberOfFemale++;
             }
-            else
-                throw new RuntimeException("The gender is not correct");
         }
 
         if(numberOfMale != 0)
