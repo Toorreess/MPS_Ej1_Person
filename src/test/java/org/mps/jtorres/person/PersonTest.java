@@ -19,7 +19,9 @@ import static org.junit.jupiter.api.Assertions.*;
  * 4) El metodo name() devuelve correctamente el nombre del objeto person
  * 5) El metodo age() devuelve correctamente la edad del objeto person
  * 6) El metodo gender() devuelve correctamente el genero del objeto person
- * 7) Comprobar que el correcto comportamiento del sistema devuelva unos valores esperados
+ * 7) Dada lista valida de personas, se devuelva la media correctamente por genero
+ * 8) Dada una lista de solo hombres, la edad media de las mujeres es 0
+ * 9) Dada una lista de solo mujeres, la edad media de los hombres es 0
  */
 public class PersonTest {
     Person p;
@@ -99,6 +101,22 @@ public class PersonTest {
         assertEquals(valuesExpected[1], valuesActual[1]);
     }
 
+    // 8) Dada una lista de solo hombres, la edad media de las mujeres es 0
     @Test
+    void NoFemaleInList(){
+        lPersons.add(new Person("pMale1", 20, "male"));
+        lPersons.add(new Person("pMale2", 20, "Male"));
+
+        assertEquals(0.0, p.averageAgePerGender(lPersons)[1]);
+    }
+
+    // 9) Dada una lista de solo mujeres, la edad media de los hombres es 0
+    @Test
+    void NoMaleInList(){
+        lPersons.add(new Person("pFemale1", 20, "female"));
+        lPersons.add(new Person("pFemale2", 20, "Female"));
+
+        assertEquals(0.0, p.averageAgePerGender(lPersons)[0]);
+    }
 
 }

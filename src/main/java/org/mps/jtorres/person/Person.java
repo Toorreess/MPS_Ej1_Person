@@ -30,29 +30,32 @@ public class Person {
     public int age(){return age;}
     public String gender(){return gender;}
 
-    public double[] averageAgePerGender(List<Person> persons){
-        double[] meanAge = {0.0, 0.0};
+    public double[] averageAgePerGender(List<Person> persons) {
+        double[] meanAge = new double[2];
         double numberOfMale = 0.0;
         double numberOfFemale = 0.0;
 
-        if(persons.isEmpty()) throw new EmptyListException("The list can not be empty.");
+        if (persons.isEmpty()) throw new EmptyListException("The list can not be empty.");
 
-        for(Person p : persons){
-            if(p.gender().equalsIgnoreCase("male")) {
+        for (Person p : persons) {
+            if (p.gender().equalsIgnoreCase("male")) {
                 meanAge[0] += p.age();
                 numberOfMale++;
-            }
-            else {
+            } else {
                 meanAge[1] += p.age();
                 numberOfFemale++;
             }
         }
 
-        if(numberOfMale != 0)
+        if (numberOfMale != 0)
             meanAge[0] = meanAge[0] / numberOfMale;
-        if(numberOfFemale != 0)
-            meanAge[1] = meanAge[1] / numberOfFemale;
+        else
+            meanAge[0] = 0.0;
 
+        if (numberOfFemale != 0)
+            meanAge[1] = meanAge[1] / numberOfFemale;
+        else
+            meanAge[1] = 0.0;
         return meanAge;
     }
 }
