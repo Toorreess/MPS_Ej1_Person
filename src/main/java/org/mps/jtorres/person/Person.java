@@ -37,14 +37,14 @@ public class Person {
         double numberOfMale = 0.0;
         double numberOfFemale = 0.0;
 
-        if(persons.isEmpty()) throw new RuntimeException();
+        if(persons.isEmpty()) throw new EmptyListException("The list can not be empty.");
 
         for(Person p : persons){
-            if(p.name().equalsIgnoreCase("male")) {
+            if(p.gender().equalsIgnoreCase("male")) {
                 maleMeanAge += p.age();
                 numberOfMale++;
             }
-            else if (p.name().equalsIgnoreCase("female")) {
+            else {
                 femaleMeanAge += p.age();
                 numberOfFemale++;
             }
