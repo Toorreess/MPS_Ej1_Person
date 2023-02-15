@@ -75,7 +75,7 @@ public class PersonTest {
 
     // 6) El metodo gender() devuelve correctamente el genero del objeto person
     @Test
-    void returnCorrectGender(){
+    void returnMaleGender(){
         String genderExpected = "male";
         String genderActual = p.gender();
         assertEquals(genderExpected, genderActual);
@@ -98,4 +98,7 @@ public class PersonTest {
         //Correct female mean age
         assertEquals(valuesExpected[1], valuesActual[1]);
     }
+
+    @Test
+
 }
