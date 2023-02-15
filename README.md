@@ -1,5 +1,4 @@
-# MPS  
-## Excercise 1: Person  
+# MPS Excercise 1: Person  
 This repository includes:
 * Src directory.
 * Coverage of the implemented code screenshot.
